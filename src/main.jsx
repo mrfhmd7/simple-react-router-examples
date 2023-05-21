@@ -6,14 +6,36 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Home from './components/Home/Home.jsx';
 import ErrorPage from './components/Error/Error.jsx';
+import Default from './components/Default/Default.jsx';
+import Root from './Root/Root.jsx';
+import Friends from './components/Friends/Friends.jsx';
+import Contact from './components/Contact/Contact.jsx';
+import About from './components/About/About.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
-    errorElement: <ErrorPage></ErrorPage>
+    element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/',
+        element: <Default></Default>
+      },
+      {
+        path: '/friends',
+        element: <Friends></Friends>
+      },
+      {
+        path: '/contact',
+        element: <Contact></Contact>
+      },
+      {
+        path: '/about',
+        element: <About></About>
+      },
+    ]
   },
 ]);
 
